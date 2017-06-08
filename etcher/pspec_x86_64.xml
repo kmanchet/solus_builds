@@ -1,0 +1,44 @@
+<PISI>
+    <Source>
+        <Name>etcher</Name>
+        <Packager>
+            <Name>Kayla Manchette</Name>
+            <Email>k.manchette1@gmail.com</Email>
+        </Packager>
+        <License>Apache-2.0</License>
+        <PartOf>system.utils</PartOf>
+        <Summary xml:lang="en">Flash OS images to SD cards &amp; USB drives, safely and easily.</Summary>
+        <Description xml:lang="en">Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>etcher</Name>
+        <Summary xml:lang="en">Flash OS images to SD cards &amp; USB drives, safely and easily.</Summary>
+        <Description xml:lang="en">Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience.
+</Description>
+        <PartOf>system.utils</PartOf>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications/etcher.desktop</Path>
+            <Path fileType="data">/usr/share/etcher</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/128x128/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/16x16/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/24x24/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/256x256/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/48x48/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/512x512/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/64x64/apps/etcher.png</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/96x96/apps/etcher.png</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2017-06-06</Date>
+            <Version>1.0.0</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Kayla Manchette</Name>
+            <Email>k.manchette1@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

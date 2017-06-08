@@ -1,0 +1,51 @@
+name       : etcher
+version    : 1.0.0
+release    : 1
+source     :
+    - https://github.com/resin-io/etcher/archive/v1.0.0.tar.gz : 2b06dbbaf19e495dbe92651c3018a273c0d73697b522ce0d837f883a3b1be4b6
+license    : Apache-2.0
+component  : system.utils
+networking : yes
+summary    : Flash OS images to SD cards & USB drives, safely and easily.
+description: |
+    Etcher is a powerful OS image flasher built with web technologies to ensure flashing an SDCard or USB drive is a pleasant and safe experience.
+builddeps  :
+    - nodejs
+    - git
+    - python
+    - jq
+    - curl
+    - pkgconfig(gdk-x11-2.0)
+    - pkgconfig(xi)
+    - pkgconfig(xcursor)
+    - pkgconfig(xrandr)
+    - pkgconfig(xcomposite)
+    - pkgconfig(xscrnsaver)
+    - pkgconfig(alsa)
+    - pkgconfig(gconf-2.0)
+rundeps    :
+    - nodejs
+setup      : |   
+    #%patch -p1 < $pkgfiles/0001-disabling-updates.patch
+    RELEASE_TYPE=production make electron-develop
+build      : |
+    RELEASE_TYPE=production make package-electron
+install    : |
+    install -dm00644 $installdir/usr/share/etcher
+    install -dm00644 $installdir/usr/bin
+    cp -R $workdir/release/Etcher-1.0.0-linux-x64/* $installdir/usr/share/etcher/
+   
+    #move etcher-electron.sh to /usr/share folder. File disables automatic updates for GUI. 
+    install -Dm 00644 $pkgfiles/etcher-electron.sh $installdir/usr/share/etcher/etcher-electron.sh
+
+    ln -s /usr/share/etcher/etcher $installdir/usr/bin/
+    
+
+    #Desktop File
+    install -Dm 00644 $pkgfiles/etcher.desktop $installdir/usr/share/applications/etcher.desktop
+    
+    #Install Icons
+    for icon_size in 16 24 48 64 96 128 256 512
+    do
+        install -D -m00644 $pkgfiles/icon.png $installdir/usr/share/icons/hicolor/${icon_size}x${icon_size}/apps/etcher.png
+    done
