@@ -38,7 +38,7 @@ install    : |
     #move etcher-electron.sh to /usr/share folder. File disables automatic updates for GUI. 
     install -Dm 00644 $pkgfiles/etcher-electron.sh $installdir/usr/share/etcher/etcher-electron.sh
 
-    ln -s /usr/share/etcher/etcher $installdir/usr/bin/
+    ln -s /usr/share/etcher/etcher-electron.sh $installdir/usr/bin/etcher
     
 
     #Desktop File
